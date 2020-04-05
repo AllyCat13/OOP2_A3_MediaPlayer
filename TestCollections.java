@@ -1,6 +1,6 @@
 
 import java.util.ArrayList;//Need to import to be able to use array lists. I had variables not recognized before import.
-import java.util.Random;//Need this to use Math.random()
+import java.util.Scanner;//Need this to get user input for index value for song or movies.
 public class TestCollection {
 
 
@@ -51,21 +51,25 @@ public class TestCollection {
 			//Next I needed to lookup how to generate random number between 1-20
 			//which simulates the possible index the user might put into the
 			//text box.
-			//Got concepts and examples from "Geeks for Geeks"
+			//Got concepts and examples from "Geek's for Geek's"
 			//https://www.geeksforgeeks.org/java-math-random-method-examples
 
-			int highestVal = 20;
-			int lowestVal = 1;
-			int userRandom = (int)(Math.random() * highestVal) + lowestVal;//Random num gen is working
+			Scanner input = new Scanner(System.in);//Create scanner object variable input
+			System.out.println("Enter index value please, range:1-20");//prompt user for index value
+			int userIndex = input.nextInt();//store index value into an integer variable fit to hold it.
+
+			//int highestVal = 20;
+			//int lowestVal = 1;
+			//int userRandom = (int)(Math.random() * highestVal) + lowestVal;//Random number generator is working
 																			//Prints from 1-20 including 1 and 20
 
-			System.out.println(userRandom);
+
 			//This for loop checks each element at each slot and
 			//compares them to see if their equal and if they are
 			//They can print the element at this location.
 			for(int i = 0; i < collection1.size() -1; i++){
 				//This for loop checks each element one slot at a time
-					if(userRandom == collection1.indexOf(collection1.get(i))){
+					if(userIndex == collection1.indexOf(collection1.get(i))){
 						//This if statement checks if the index of the element stored
 						//here matches the random number between 1-20 that simulates
 						//what a user might input as an index value into an text field.
