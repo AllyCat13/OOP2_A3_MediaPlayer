@@ -70,39 +70,48 @@ public class TestCollection {
 
 			//had to declare this var at top so I could use it elsewhere and inside other
 			//place but still wanting the same storage bin to be accessed and changed from different places.
-			int userIndex;
-			Scanner scanner = new Scanner(System.in);//Creating scanner object variable. 
+			int userIndex = 0;
+			Scanner scanner = new Scanner(System.in);//Creating scanner object variable.
+
+			//I'm most proud of this challenge I overcame close to end of coding processing of app
+			//I had trouble performing both checks of number between range and if number.
+			//This first checks if number is in range and then steps inside
+			//to not let anyone pass until the number is in range.
+			//Then call method to validate if number when assigning scanner object to
+			//user index variable after each iteration of asking and store user input.
+			if(userIndex >= 1 && userIndex <= 20){
+			userIndex = validateIfNumber(scanner);
+			}
+			else{
+				boolean inputIsValid = false;
+				while(!inputIsValid){
+					userIndex = validateIfNumber(scanner);
+					if(userIndex >= 1 && userIndex <= 20)
+					{
+						inputIsValid = true;
+					}
+
+				}
+
+			}
 			//Method I created where I put try catch to check for number
 			//in a method. It's cleaner coding and the method can be used in 1 statement on
 			//any scanner object elsewhere in the program. I got the code from my first assignment.
 			//I remember finding a similar example on the web.
-			userIndex = validateIfNum(scanner);
+
+			//userIndex = validateIfNumberBetweenRange(userIndex, scanner);
 
 
 
 
 
 
-				//userIndex = validateIfNumberBetweenRange(scanner);
 
 
 
 
 
 
-
-			//if(scanner.hasNextInt()){
-			//System.out.println("Entered input is integer");
-			//}
-			//else if(scanner.hasNext()){
-			//String string = scanner.nextLine();
-			//if(string.length()>1){
-			//System.out.println("Entered input is String");
-			//}
-			//else{
-			//System.out.println("Entered input is Char");
-			//}
-			//}
 
 
 
@@ -119,12 +128,6 @@ public class TestCollection {
 					}
 			}
 
-			//Here i'm storing the directions to the images house in a file object/
-			//Each gets its own file object.
-			//File object comes with some cool methods we can use.
-			//Page 478 chapter 12, Liang(2011)
-			//I was wrong. You have to use image class and can see it in a javafx scene.
-			//I'll do that last.
 
 
 
@@ -146,8 +149,8 @@ public class TestCollection {
 	//Can get flipped to say the loop can end.
 
 	//Method returns integer value
-	//Method requires a scanner object parameter it can access and change. 
-	public static int validateIfNum(Scanner scanner){
+	//Method requires a scanner object parameter it can access and change.
+	public static int validateIfNumber(Scanner scanner){
 	boolean continueInput = true;
 	int userIndex = 0;
 	do {
@@ -165,10 +168,8 @@ public class TestCollection {
 	while(continueInput);
 	return userIndex;
 
-	}
-	//Method to repeatedly ask for number value\
-	//I need that wont stop asking until the input is a number
-	//Program can't proceed until a number is inputed as index.
+	}//End number validate method
+
 
 //End Testing Collection class
 }
