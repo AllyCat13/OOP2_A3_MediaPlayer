@@ -67,19 +67,29 @@ public class TestCollection {
 			//Found this way to check the scanner object before putting it into a variable of that's
 			//Expecting a certain data type.
 			//https://www.quora.com/How-do-you-check-whether-a-user-enters-an-integer-input-character-input-or-string-input-in-Java
-			int userIndex = 0;
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("please enter an input");
 
-			try{
-				userIndex = validateIfNumber(scanner);
+			//had to declare this var at top so I could use it elsewhere and inside other
+			//place but still wanting the same storage bin to be accessed and changed from different places.
+			int userIndex;
+			Scanner scanner = new Scanner(System.in);//Creating scanner object variable. 
+			//Method I created where I put try catch to check for number
+			//in a method. It's cleaner coding and the method can be used in 1 statement on
+			//any scanner object elsewhere in the program. I got the code from my first assignment.
+			//I remember finding a similar example on the web.
+			userIndex = validateIfNum(scanner);
 
-			}
-			catch(InputMismatchException ex){
-				System.out.println("Must be a number!");
-			}
 
-			userIndex = validateIfNumberBetweenRange(scanner);
+
+
+
+
+				//userIndex = validateIfNumberBetweenRange(scanner);
+
+
+
+
+
+
 
 			//if(scanner.hasNextInt()){
 			//System.out.println("Entered input is integer");
@@ -128,30 +138,37 @@ public class TestCollection {
 
 
 	}//End Main method
-	public static int validateIfNumber(Scanner scanner){
-		if(scanner.hasNext()){
-			throw new InputMismatchException("Must be integer");
 
-		}
-		int result = scanner.nextInt();
-		return result;
-		}
 
-	public static int validateIfNumberBetweenRange(Scanner scanner){
-		boolean inputIsValid = false;
-		int userIndex = scanner.nextInt();
-		while(!inputIsValid)
-		{
-			if(userIndex >= 1 && userIndex <= 20){
-				inputIsValid = true;
-			}
-			else
-			{
-				System.out.println("enter number: 1-20");
-				userIndex = scanner.nextInt();
-			}
+	//Need to clear scanner object or my while loops always think
+	//There's a string in there and they never get to
+	//If loop where a number is entered and my boolean switch
+	//Can get flipped to say the loop can end.
+
+	//Method returns integer value
+	//Method requires a scanner object parameter it can access and change. 
+	public static int validateIfNum(Scanner scanner){
+	boolean continueInput = true;
+	int userIndex = 0;
+	do {
+		try {
+			System.out.println("Enter input as integer");
+			userIndex = scanner.nextInt();
+			continueInput = false;
+			return userIndex;
 		}
-		return userIndex;
+		catch (InputMismatchException ex) {
+			System.out.println("try again, must be an integer");
+			scanner.nextLine();
+		}
 	}
+	while(continueInput);
+	return userIndex;
+
+	}
+	//Method to repeatedly ask for number value\
+	//I need that wont stop asking until the input is a number
+	//Program can't proceed until a number is inputed as index.
+
 //End Testing Collection class
 }
