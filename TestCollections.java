@@ -145,6 +145,11 @@ public class TestCollection {
 			if(userIndex >= 1 && userIndex <= 20){
 				inputIsValid = true;
 			}
+			else
+			{
+				System.out.println("enter number: 1-20");
+				userIndex = scanner.nextInt();
+			}
 		}
 		return userIndex;
 	}
