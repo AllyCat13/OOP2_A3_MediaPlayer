@@ -1,11 +1,17 @@
 
 import java.util.ArrayList;//Need to import to be able to use array lists. I had variables not recognized before import.
 import java.util.Scanner;//Need this to get user input for index value for song or movies.
-import java.io.*;//Need the file class to create object with URL for image which is a file. It has methods.
 import java.util.*;
 public class TestCollection {
 
-
+	//My GitHub link for rough copy of A3\
+	//https://github.com/AllyCat13/OOP2_A3_MediaPlayer/commit/ff6a0f9146fb09900b540e4faadcfb916fce9080
+	//JavaFx FXML Textbook pdf url
+	//http://icarus.cs.weber.edu/~rball/JavaBook/JavaFXBook.pdf
+	//Google scene builder and event handlers
+	//Try adapt prof. JFX example code
+	//User Oracle scene builder examples to learn how to connect
+	//Java code to Scenebuilder GUI and execute on events.
 	//ArrayList Methods:
 	//.add() for adding elements
 	//println(collection1) printing whole array in one statement.
